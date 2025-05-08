@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Administrator</title>
+  <link rel="stylesheet" href="styles2.css"/>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Bienvenido a Classic Barber Club</h1>
+        <nav>
+          <ul>
+            <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+            <li><a href="#" onclick="mostrarSeccion('servicios')">Servicios</a></li>
+            <li><a href="#" onclick="mostrarSeccion('estadisticas')">Estadisticas</a></li>
+            <li><a href="#" onclick="mostrarSeccion('perfil')">Mi Perfil</a></li>
+            <li><a href="#" onclick="mostrarSeccion('promociones')">Promociones</a></li>
+            <li><a href="#" onclick="mostrarSeccion('calificaciones')">Calificaciones</a></li>
+            <li><a href="#" onclick="mostrarSeccion('agregarbarbero')">Barberos</a></li>
+            <li><a href="index.html">Cerrar Sesión</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section id="anuncio" class="call-to-action">
+        <h2>¿Desea revisar las estadisticas?</h2>
+        <p>Revise las estadisticas relacionadas a cada empleado.</p>
+        <button onclick="mostrarSeccion('estadisticas')">Revisar Estadisticas Ahora</button>
+      </section>
+
+      <main>
+
+        <!-- Seccion de inicio -->
+        <section id="inicio" class="services-with-prices">
+          <h2>Nuestros Servicios y Precios</h2>
+          <ul class="services-list">
+            <li>
+              <h3>Corte Clásico</h3>
+              <p>Un corte de cabello tradicional para un look impecable.</p>
+              <span class="price">$25</span>
+            </li>
+            <li>
+              <h3>Barba Completa</h3>
+              <p>Afeitado y arreglo de barba con productos de calidad.</p>
+              <span class="price">$20</span>
+            </li>
+            <li>
+              <h3>Corte + Barba</h3>
+              <p>El paquete completo para un cambio de imagen total.</p>
+              <span class="price">$40</span>
+            </li>
+          </ul>
+          <p class="view-all-services"><a href="#" onclick="mostrarSeccion('servicios')">Ver todos los servicios</a></p>
+        </section>
+    
+        <!-- Seccion de Servicios -->
+        <section id="servicios" class="hidden">
+          <h2>Servicios Disponibles</h2>
+          <ul class="servicios-lista">
+            <li>
+              <span>Cortes clásicos</span>
+              <img src="Images/corte.png" alt="Corte Clásico">
+              <span class="precio-servicio">$14.000</span>
+            </li>
+            <li>
+              <span>Barba completa</span>
+              <img src="Images/barba.png">
+              <span class="precio-servicio">$8.000</span>
+            </li>
+            <li>
+              <span>Corte + Barba</span>
+              <img src="Images/xwOYLXEQ8G2F2cjz.png">
+              <span class="precio-servicio">$21.000</span>
+            </li>
+            <li>
+              <span>Limpieza Facial</span>
+              <img src="Images/liempieza.PNG">
+              <span class="precio-servicio">$10.000</span>
+            </li>
+            <li>
+              <span>Depilado de Cejas</span>
+              <img src="Images/cejas.PNG">
+              <span class="precio-servicio">$3.000</span>
+            </li>
+            <li>
+              <span>Tinte de Cabello</span>
+              <img src="Images/Tinturado.PNG">
+              <span class="precio-servicio">$80.000</span>
+            </li>
+            <li>
+              <span>Rayos para el Cabello</span>
+              <img src="Images/rayos.jpg">
+              <span class="precio-servicio">$80.000</span>
+            </li>
+          </ul>
+        </section>
+    
+        <section id="estadisticas" class="hidden">
+            <h2>Estadísticas</h2>
+            <div class="formulario-centrado">
+                <div>
+                    <label for="tipoEstadistica">Ver estadísticas:</label>
+                    <select id="tipoEstadistica" onchange="mostrarTipoEstadistica()">
+                        <option value="diarias">Diarias</option>
+                        <option value="semanales">Semanales</option>
+                        <option value="mensuales">Mensuales</option>
+                        <option value="anuales">Anuales</option>
+                    </select>
+                </div>
+                <h3 id="tituloEstadisticas">Estadísticas del Día</h3> 
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="p-2">Barbero</th>
+                            <th class="p-2">Citas Atendidas</th>
+                            <th class="p-2">Ingresos Generados</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t">
+                            <td>Carlos Barbero</td>
+                            <td class="p-2">8</td>
+                            <td class="p-2">$160.000</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="p-2">Gerente (Tú)</td>
+                            <td class="p-2">5</td>
+                            <td class="p-2">$100.000</td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="agregarbarbero" class="hidden">
+            <h2>Barberos:</h2>
+            <ul id="lista-barberos" class="servicios-lista">
+                <li data-barbero-id="1">
+                    <span>Sebastian Gomez</span>
+                    <span class="dia-descanso">Descansa Lunes</span>
+                </li>
+                <li data-barbero-id="2">
+                    <span>Juan Ochoa</span>
+                    <span class="dia-descanso">Descansa Miercoles</span>
+                </li>
+                <li data-barbero-id="3">
+                    <span>Andres Sanchez</span>
+                    <span class="dia-descanso">Descansa Miercoles</span>
+                </li>
+                <li data-barbero-id="4">
+                    <span>Felipe Leon</span>
+                    <span class="dia-descanso">Descansa Sabado</span>
+                </li>
+                <li data-barbero-id="5">
+                    <span>Jose Ramirez</span>
+                    <span class="dia-descanso">Descansa Domingo</span>
+                </li>
+                <li data-barbero-id="6">
+                    <span>Joshep Chitia</span>
+                    <span class="dia-descanso">Descansa Viernes</span>
+                </li>
+                <li data-barbero-id="7">
+                    <span>Daniel Ballesteros</span>
+                    <span class="dia-descanso">Descansa Lunes</span>
+                </li>
+                <li data-barbero-id="8">
+                    <span>Jhonatan Baez</span>
+                    <span class="dia-descanso">Descansa Martes</span>
+                </li>
+                <li data-barbero-id="9">
+                    <span>Maicol Restrepo</span>
+                    <span class="dia-descanso">Descansa Martes</span>
+                </li>
+                <li data-barbero-id="10">
+                    <span>Johan Castro</span>
+                    <span class="dia-descanso">$Descansa Viernes</span>
+                </li>
+            </ul>
+            <button id="boton-actualizar-barberos" type="submit" class="formulario-centrado"> Actualizar Barberos </button>
+        
+        
+
+            <div class="formulario-centrado" class="hidden">
+              <form class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <input type="text" placeholder="Nombre completo" class="p-2 border rounded" />
+                <input type="email" placeholder="Correo electrónico" class="p-2 border rounded" />
+                <input type="text" placeholder="Usuario" class="p-2 border rounded" />
+                <input type="password" placeholder="Contraseña" class="p-2 border rounded" />
+                <button class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 col-span-1 md:col-span-3">
+                  Agregar Barbero
+                </button>
+              </form>
+            </div>
+          </section>
+
+    
+
+        <!-- Seccion de perfil -->
+        <section id="perfil" class="hidden">
+          <h2>Mi Perfil</h2>
+          <form id="form-perfil" class="formulario-centrado">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+    
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name ="apellido">
+    
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" value="juan@example.com">
+    
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" value="3200000000">
+    
+            <label for="contrase">Contraseña:</label>
+            <input type="password" id="contrase" name="contraseña">
+            
+            <label for="fecha-registro">Fecha de Registro:</label>
+            <input type="text" id="fecha-registro" name="fecha-registro" readonly>
+    
+            <button type="submit">Actualizar Perfil</button>
+          </form>
+        </section>
+
+        <!-- Seccion de promociones -->
+    
+        <section id="promociones" class="hidden promotions-section">
+          <h2>¡Nuestras Promociones Especiales!</h2>
+          <div class="promotion-card", >
+            <h3>Descuento de Bienvenida</h3>
+            <p>15% de descuento en tu primer corte.</p>
+            <button onclick="mostrarDetalle('detalle-bienvenida')">Ver Detalles</button>
+          </div>
+          <div class="promotion-card">
+            <h3>Martes de Barba</h3>
+            <p>Arreglo de barba a mitad de precio todos los martes.</p>
+            <button onclick="mostrarDetalle('detalle-martes')">Ver Detalles</button>
+          </div>
+          <div class="promotion-card">
+            <h3>Paquete Familiar</h3>
+            <p>Corte para papá e hijo con un precio especial.</p>
+            <button onclick="mostrarDetalle('detalle-familiar')">Ver Detalles</button>
+          </div>
+    
+    
+              <!-- Tarjeta de detalles: Descuento de Bienvenida -->
+   
+              <div id="detalle-bienvenida" class="promo-detalle hidden">
+                <h3>Descuento de Bienvenida</h3>
+                <p><strong>Descripción:</strong> 15% de descuento en tu primer corte.</p>
+                <p><strong>Descuento:</strong> 15%</p>
+                <p><strong>Fecha de Inicio:</strong> 01/05/2025</p>
+                <p><strong>Fecha de Fin:</strong> 30/06/2025</p>
+                <p><strong>Usos Máximos:</strong> 1 por persona</p>
+            </div>
+    
+    
+            <!-- Tarjeta de detalles: Martes de Barba -->
+            <div id="detalle-martes" class="promo-detalle hidden">
+                <h3>Martes de Barba</h3>
+                <p><strong>Descripción:</strong> Arreglo de barba a mitad de precio todos los martes.</p>
+                <p><strong>Descuento:</strong> 50%</p>
+                <p><strong>Fecha de Inicio:</strong> 01/05/2025</p>
+                <p><strong>Fecha de Fin:</strong> 31/12/2025</p>
+                <p><strong>Usos Máximos:</strong> Ilimitado (solo martes)</p>
+            </div>
+    
+   
+            <!-- Tarjeta de detalles: Paquete Familiar -->
+   
+            <div id="detalle-familiar" class="promo-detalle hidden">
+                <h3>Paquete Familiar</h3>
+                <p><strong>Descripción:</strong> Corte para papá e hijo con un precio especial.</p>
+                <p><strong>Descuento:</strong> 20%</p>
+                <p><strong>Fecha de Inicio:</strong> 10/05/2025</p>
+                <p><strong>Fecha de Fin:</strong> 10/07/2025</p>
+                <p><strong>Usos Máximos:</strong> 2 por familia</p>   
+            </div>
+   
+        </section>
+
+        <!-- Seccion de calificaciones de los barberos -->
+    
+        <section id="calificaciones" class="hidden">
+            <h2>Calificaciones de Barberos</h2>
+            <div class="formulario-centrado">
+              <div>
+                
+                <!-- Tarjeta 1 -->
+                <div>
+                  <div>
+                    <h3>Carlos Barbero</h3>
+                    <p>Calificación promedio: ⭐ 4.8</p>
+                  </div>
+                  <a href="#" class="text-indigo-600 hover:underline">Ver más</a>
+                </div>
+                
+                <!-- Tarjeta 2 -->
+                <div>
+                  <div>
+                    <h3>Camilo Barbero</h3>
+                    <p>Calificación promedio: ⭐ 4.6</p>
+                  </div>
+                  <a href="#" class="text-indigo-600 hover:underline">Ver más</a>
+                </div>
+          
+                <!-- Tarjeta 3 -->
+                <div >
+                  <div>
+                    <h3>Andrés Barbero</h3>
+                    <p>Calificación promedio: ⭐ 4.9</p>
+                  </div>
+                  <a href="#" class="text-indigo-600 hover:underline">Ver más</a>
+                </div>
+          
+                <!-- Puedes seguir agregando más barberos aquí -->
+          
+              </div>
+            </div>
+          </section>
+    
+      </main>
+
+      <footer>
+        <p>© 2025 Classic Barber Club - Todos los derechos reservados</p>
+      </footer>
+
+      <script>
+        function mostrarSeccion(id) {
+          const secciones = document.querySelectorAll("main > section");
+          secciones.forEach(sec => sec.classList.add("hidden"));
+          document.getElementById(id).classList.remove("hidden");
+      
+          // Mostrar u ocultar el anuncio según la sección actual
+          const anuncio = document.getElementById("anuncio");
+          if (id === "inicio") {
+            anuncio.classList.remove("hidden");
+          } else {
+            anuncio.classList.add("hidden");
+          }
+        }
+    
+        function mostrarDetalle(id) {
+        const tarjeta = document.getElementById(id);
+    
+        // Oculta otras tarjetas si están visibles
+        const todas = document.querySelectorAll('.promo-detalle');
+        todas.forEach(t => {
+          if (t.id !== id) t.classList.add('hidden');
+        });
+    
+        // Si ya está visible, ocúltala
+        if (!tarjeta.classList.contains('hidden')) {
+          tarjeta.classList.add('hidden');
+        } else {
+          tarjeta.classList.remove('hidden');
+          tarjeta.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      // Selector para el tipo de estadisticas
+
+      function mostrarTipoEstadistica() {
+        const selector = document.getElementById("tipoEstadistica");
+        const tituloEstadisticas = document.getElementById("tituloEstadisticas");
+        const tipoSeleccionado = selector.value;
+
+        if (tipoSeleccionado === "diarias") {
+            tituloEstadisticas.textContent = "Estadísticas del Día";
+            // Aquí podrías agregar lógica para mostrar las estadísticas diarias
+        } else if (tipoSeleccionado === "semanales") {
+            tituloEstadisticas.textContent = "Estadísticas Semanales";
+            // Aquí podrías agregar lógica para mostrar las estadísticas semanales
+        } else if (tipoSeleccionado === "mensuales") {
+            tituloEstadisticas.textContent = "Estadísticas Mensuales";
+            // Aquí podrías agregar lógica para mostrar las estadísticas mensuales
+        } else if (tipoSeleccionado === "anuales") {
+            tituloEstadisticas.textContent = "Estadísticas Anuales";
+            // Aquí podrías agregar lógica para mostrar las estadísticas anuales
+        }
+        // Si deseas, puedes agregar una llamada a una función para actualizar la tabla
+        // con los datos correspondientes al tipo de estadística seleccionado.
+    }
+
+    // Para que al cargar la página muestre el título por defecto (Día)
+    document.addEventListener('DOMContentLoaded', mostrarTipoEstadistica);
+
+    const botonActualizarBarberos = document.getElementById('boton-actualizar-barberos');
+    const listaBarberos = document.getElementById('lista-barberos');
+    let modoEdicion = false;
+
+    botonActualizarBarberos.addEventListener('click', () => {
+        modoEdicion = !modoEdicion;
+        listaBarberos.querySelectorAll('li').forEach(item => {
+            const spanNombre = item.querySelector('span:first-child');
+            const spanDescanso = item.querySelector('.dia-descanso');
+
+            // Limpiar botones existentes si los hay
+            let botonActualizarExistente = item.querySelector('.boton-actualizar');
+            if (botonActualizarExistente) {
+                botonActualizarExistente.remove();
+            }
+            let botonEliminarExistente = item.querySelector('.boton-eliminar');
+            if (botonEliminarExistente) {
+                botonEliminarExistente.remove();
+            }
+
+            if (modoEdicion) {
+                const botonActualizar = document.createElement('button');
+                botonActualizar.textContent = 'Actualizar';
+                botonActualizar.classList.add('boton-actualizar');
+                botonActualizar.addEventListener('click', () => {
+                    const barberoId = item.dataset.barberoId;
+                    // Aquí puedes agregar la lógica para actualizar la información del barbero con este ID
+                    console.log(`Actualizar barbero con ID: ${barberoId}`);
+                    // Por ejemplo, podrías mostrar un formulario de edición
+                });
+
+                const botonEliminar = document.createElement('button');
+                botonEliminar.textContent = 'Eliminar';
+                botonEliminar.classList.add('boton-eliminar');
+                botonEliminar.addEventListener('click', () => {
+                    const barberoId = item.dataset.barberoId;
+                    // Aquí puedes agregar la lógica para eliminar el barbero con este ID
+                    console.log(`Eliminar barbero con ID: ${barberoId}`);
+                    // Por ejemplo, podrías hacer una petición al backend para eliminarlo
+                    item.remove(); // Eliminar visualmente el elemento de la lista
+                });
+
+                item.appendChild(botonActualizar);
+                item.appendChild(botonEliminar);
+            } else {
+                // Si se vuelve al modo normal, podrías restaurar el estado original si es necesario
+                // En este caso, simplemente se remueven los botones
+            }
+        });
+
+        botonActualizarBarberos.textContent = modoEdicion ? 'Ver Barberos' : 'Actualizar Barberos';
+    });
+
+</script>
+  
+</body>
+</html>

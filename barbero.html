@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Classic Barber Club</title>
+  <link rel="stylesheet" href="barbero.css" />
+</head>
+<body>
+
+  <header class="main-header">
+    <h1>Hola Barber Bienvenido a Classic Barber Club</h1>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+        <li><a href="#" onclick="mostrarSeccion('mis-citas')">Mis Agenda</a></li>
+        <li><a href="#" onclick="mostrarSeccion('perfil')">Mi Perfil</a></li>
+        <li><a href="#" onclick="mostrarSeccion('calificaciones')">Tus Calificaciones</a></li>
+        <li><a href="index.html">Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="anuncio" class="call-to-action">
+    <h2>¿Desea revisar su agenda del dia?</h2>
+    <p>Revise sus citas pendientes relacionadas a sus clientes.</p>
+    <button onclick="mostrarSeccion('mis-citas')">Mirar agenda ahora</button>
+  </section>
+
+  <main>
+
+    <!-- Seccion de inicio -->
+
+    <section id="inicio" class="services-with-prices">
+      <h2>Calificaciones Tuyas</h2>
+      <ul class="services-list">
+        <li>
+          <h3>Jaime Perea</h3>
+          <p>Buen barbero y detallista pero me corto un poco.</p>
+          <span class="price"> ⭐ 4</span>
+        </li>
+        <li>
+          <h3>Jose Pinto</h3>
+          <p>Exelente Corte de Cabello.</p>
+          <span class="price">⭐ 5</span>
+        </li>
+        <li>
+          <h3>Rigo Bolaños</h3>
+          <p>Me corto mas de lo que debia.</p>
+          <span class="price">⭐ 4</span>
+        </li>
+      </ul>
+      <p class="view-all-services"><a href="#" onclick="mostrarSeccion('calificaciones')">Ver todas las calificaciones</a></p>
+    </section>
+
+    <!-- Seccion de citas -->
+
+    <section id="mis-citas" class="hidden">
+  <h2>Mis Citas</h2>
+  <div id="filtro-citas">
+    <label for="filtrarPor">Filtrar por:</label>
+    <select id="filtrarPor">
+      <option value="hoy">Citas de Hoy</option>
+      <option value="fecha">Fecha Específica</option>
+    </select>
+    <input type="date" id="fechaEspecifica" class="hidden">
+    <button id="botonFiltrar" type="button"> Filtrar</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID cita</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Cliente</th>
+        <th>Servicio</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody id="tablaCitasBody">
+      <tr>
+        <td>1</td>
+        <td>2025-05-03</td>
+        <td>15:30</td>
+        <td>Carlos</td>
+        <td>Corte</td>
+        <td>Confirmada</td>
+      </tr>
+      </tbody>
+  </table>
+</section>
+
+    <!-- Seccion de perfil -->
+    <section id="perfil" class="hidden">
+      <h2>Mi Perfil</h2>
+      <form id="form-perfil" class="formulario-centrado">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name ="apellido">
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" value="juan@example.com">
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" value="3200000000">
+
+        <label for="contrase">Contraseña:</label>
+        <input type="password" id="contrase" name="contraseña">
+        
+        <label for="fecha-registro">Fecha de Registro:</label>
+        <input type="text" id="fecha-registro" name="fecha-registro" readonly>
+
+        <button type="submit">Actualizar Perfil</button>
+      </form>
+    </section>
+
+    <section id="calificaciones" class="hidden">
+            <h2>Calificaciones de Clientes</h2>
+            <div class="formulario-centrado">
+              <div>
+                
+                <!-- Tarjeta 1 -->
+                <div>
+                  <div>
+                    <h3>Carlos Perea</h3>
+                    <p>Calificación: ⭐ 4</p>
+                  </div>
+                  <a href="#" class="text-indigo-600 hover:underline">Ver más</a>
+                </div>
+                
+                <!-- Tarjeta 2 -->
+                <div>
+                  <div>
+                    <h3>Camilo Gonzales</h3>
+                    <p>Calificación: ⭐ 4</p>
+                  </div>
+                  <a href="#" class="text-indigo-600 hover:underline">Ver más</a>
+                </div>
+          
+                <!-- Tarjeta 3 -->
+                <div >
+                  <div>
+                    <h3>Andrés Ramirez</h3>
+                    <p>Calificación: ⭐ 3</p>
+                  </div>
+                  <a href="#" class="text-indigo-600 hover:underline">Ver más</a>
+                </div>
+          
+                <!-- Puedes seguir agregando más barberos aquí -->
+          
+              </div>
+            </div>
+          </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Classic Barber Club - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      const secciones = document.querySelectorAll("main > section");
+      secciones.forEach(sec => sec.classList.add("hidden"));
+      document.getElementById(id).classList.remove("hidden");
+  
+      // Mostrar u ocultar el anuncio según la sección actual
+      const anuncio = document.getElementById("anuncio");
+      if (id === "inicio") {
+        anuncio.classList.remove("hidden");
+      } else {
+        anuncio.classList.add("hidden");
+      }
+    }
+
+    function mostrarDetalle(id) {
+    const tarjeta = document.getElementById(id);
+
+    // Oculta otras tarjetas si están visibles
+    const todas = document.querySelectorAll('.promo-detalle');
+    todas.forEach(t => {
+      if (t.id !== id) t.classList.add('hidden');
+    });
+
+    // Si ya está visible, ocúltala
+    if (!tarjeta.classList.contains('hidden')) {
+      tarjeta.classList.add('hidden');
+    } else {
+      tarjeta.classList.remove('hidden');
+      tarjeta.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const filtrarPorSelect = document.getElementById('filtrarPor');
+  const fechaEspecificaInput = document.getElementById('fechaEspecifica');
+  const botonFiltrar = document.getElementById('botonFiltrar');
+  const tablaCitasBody = document.getElementById('tablaCitasBody');
+  const citasOriginales = Array.from(tablaCitasBody.rows).map(row => {
+    return {
+      fecha: row.cells[1].textContent,
+      hora: row.cells[2].textContent,
+      cliente: row.cells[3].textContent,
+      servicio: row.cells[4].textContent,
+      estado: row.cells[5].textContent,
+      rowElement: row
+    };
+  });
+
+  filtrarPorSelect.addEventListener('change', () => {
+    fechaEspecificaInput.classList.toggle('hidden', filtrarPorSelect.value !== 'fecha');
+  });
+
+  botonFiltrar.addEventListener('click', () => {
+    const filtroSeleccionado = filtrarPorSelect.value;
+    let fechaFiltrar;
+
+    if (filtroSeleccionado === 'hoy') {
+      const hoy = new Date();
+      const año = hoy.getFullYear();
+      const mes = (hoy.getMonth() + 1).toString().padStart(2, '0');
+      const dia = hoy.getDate().toString().padStart(2, '0');
+      fechaFiltrar = `${año}-${mes}-${dia}`;
+    } else if (filtroSeleccionado === 'fecha') {
+      fechaFiltrar = fechaEspecificaInput.value;
+    }
+
+    // Limpiar la tabla
+    tablaCitasBody.innerHTML = '';
+
+    // Filtrar y mostrar las citas
+    citasOriginales.forEach(cita => {
+      if (!fechaFiltrar || cita.fecha === fechaFiltrar) {
+        tablaCitasBody.appendChild(cita.rowElement);
+      }
+    });
+
+    if (tablaCitasBody.rows.length === 0) {
+      const noCitasRow = tablaCitasBody.insertRow();
+      const noCitasCell = noCitasRow.insertCell();
+      noCitasCell.colSpan = 6;
+      noCitasCell.textContent = 'No hay citas para la fecha seleccionada.';
+      noCitasCell.style.textAlign = 'center';
+    }
+  });
+});
+
+  </script>
+
+</body>
+</html>

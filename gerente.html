@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Administrator</title>
+  <title>Classic Barber Club</title>
   <link rel="stylesheet" href="gerente.css"/>
 </head>
 <body>
@@ -36,18 +36,24 @@
           <h2>Nuestros Servicios y Precios</h2>
           <ul class="services-list">
             <li>
-              <h3>Corte Clásico</h3>
-              <p>Un corte de cabello tradicional para un look impecable.</p>
+              <div>
+                <h3>Corte Clásico</h3>
+                <p>Un corte de cabello tradicional para un look impecable.</p>
+              </div>
               <span class="price">$25</span>
             </li>
             <li>
-              <h3>Barba Completa</h3>
-              <p>Afeitado y arreglo de barba con productos de calidad.</p>
+              <div>
+                <h3>Barba Completa</h3>
+                <p>Afeitado y arreglo de barba con productos de calidad.</p>
+              </div>
               <span class="price">$20</span>
             </li>
             <li>
-              <h3>Corte + Barba</h3>
-              <p>El paquete completo para un cambio de imagen total.</p>
+              <div>
+                <h3>Corte + Barba</h3>
+                <p>El paquete completo para un cambio de imagen total.</p>
+              </div>
               <span class="price">$40</span>
             </li>
           </ul>
@@ -135,17 +141,22 @@
                     <span class="dia-descanso">$Descansa Viernes</span>
                 </li>
             </ul>
-            <button id="boton-actualizar-barberos" type="submit" class="formulario-centrado"> Actualizar Barberos </button>
-        
-        
+            <div class="flex justify-center gap-4 mt-4">
+              <button id="boton-actualizar-barberos" type="button" class="formulario-centrado">
+                Ver Barberos
+              </button>
+              <button id="boton-mostrar-formulario" type="button" class="formulario-centrado">
+                Añadir Barberos
+              </button>
+            </div>
 
-            <div class="formulario-centrado" class="hidden">
-              <form class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <input type="text" placeholder="Nombre completo" class="p-2 border rounded" />
-                <input type="email" placeholder="Correo electrónico" class="p-2 border rounded" />
-                <input type="text" placeholder="Usuario" class="p-2 border rounded" />
-                <input type="password" placeholder="Contraseña" class="p-2 border rounded" />
-                <button class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 col-span-1 md:col-span-3">
+            <div id="formulario-barbero" class="hidden">
+              <form class="formulario-centrado">
+                <input type="text" placeholder="Nombre completo"/>
+                <input type="email" placeholder="Correo electrónico"/>
+                <input type="text" placeholder="Usuario"/>
+                <input type="password" placeholder="Contraseña" />
+                <button type="submit">
                   Agregar Barbero
                 </button>
               </form>
@@ -342,58 +353,93 @@
     // Para que al cargar la página muestre el título por defecto (Día)
     document.addEventListener('DOMContentLoaded', mostrarTipoEstadistica);
 
+    const botonMostrarFormulario = document.getElementById('boton-mostrar-formulario');
     const botonActualizarBarberos = document.getElementById('boton-actualizar-barberos');
+    const formularioBarbero = document.getElementById('formulario-barbero');
     const listaBarberos = document.getElementById('lista-barberos');
+    const formulario = document.getElementById('formulario-barbero');
     let modoEdicion = false;
 
+
+    // Botón "Actualizar Barberos"
+
     botonActualizarBarberos.addEventListener('click', () => {
-        modoEdicion = !modoEdicion;
-        listaBarberos.querySelectorAll('li').forEach(item => {
-            const spanNombre = item.querySelector('span:first-child');
-            const spanDescanso = item.querySelector('.dia-descanso');
 
-            // Limpiar botones existentes si los hay
-            let botonActualizarExistente = item.querySelector('.boton-actualizar');
-            if (botonActualizarExistente) {
-                botonActualizarExistente.remove();
-            }
-            let botonEliminarExistente = item.querySelector('.boton-eliminar');
-            if (botonEliminarExistente) {
-                botonEliminarExistente.remove();
-            }
+      modoEdicion = !modoEdicion;
 
-            if (modoEdicion) {
-                const botonActualizar = document.createElement('button');
-                botonActualizar.textContent = 'Actualizar';
-                botonActualizar.classList.add('boton-actualizar');
-                botonActualizar.addEventListener('click', () => {
-                    const barberoId = item.dataset.barberoId;
-                    // Aquí puedes agregar la lógica para actualizar la información del barbero con este ID
-                    console.log(`Actualizar barbero con ID: ${barberoId}`);
-                    // Por ejemplo, podrías mostrar un formulario de edición
-                });
 
-                const botonEliminar = document.createElement('button');
-                botonEliminar.textContent = 'Eliminar';
-                botonEliminar.classList.add('boton-eliminar');
-                botonEliminar.addEventListener('click', () => {
-                    const barberoId = item.dataset.barberoId;
-                    // Aquí puedes agregar la lógica para eliminar el barbero con este ID
-                    console.log(`Eliminar barbero con ID: ${barberoId}`);
-                    // Por ejemplo, podrías hacer una petición al backend para eliminarlo
-                    item.remove(); // Eliminar visualmente el elemento de la lista
-                });
+  
+      listaBarberos.querySelectorAll('li').forEach(item => {
+        const spanNombre = item.querySelector('span:first-child');
+          const spanDescanso = item.querySelector('.dia-descanso');
 
-                item.appendChild(botonActualizar);
-                item.appendChild(botonEliminar);
-            } else {
-                // Si se vuelve al modo normal, podrías restaurar el estado original si es necesario
-                // En este caso, simplemente se remueven los botones
-            }
-        });
+        // Elimina botones anteriores si existen
+        let botonActualizarExistente = item.querySelector('.boton-actualizar');
+        if (botonActualizarExistente) botonActualizarExistente.remove();
+        let botonEliminarExistente = item.querySelector('.boton-eliminar');
+        if (botonEliminarExistente) botonEliminarExistente.remove();
 
-        botonActualizarBarberos.textContent = modoEdicion ? 'Ver Barberos' : 'Actualizar Barberos';
+        if (modoEdicion) {
+          // Botón Actualizar
+          const botonActualizar = document.createElement('button');
+          botonActualizar.textContent = 'Actualizar';
+          botonActualizar.classList.add('boton-actualizar');
+          botonActualizar.type = 'button';
+          botonActualizar.addEventListener('click', () => {
+            const barberoId = item.dataset.barberoId;
+            console.log(`Actualizar barbero con ID: ${barberoId}`);
+            formulario.classList.remove('hidden');
+            formulario.scrollIntoView({ behavior: 'smooth' });
+          });
+
+
+          // Botón Eliminar
+          const botonEliminar = document.createElement('button');
+          botonEliminar.textContent = 'Eliminar';
+          botonEliminar.classList.add('boton-eliminar');
+          botonEliminar.type = 'button';
+          botonEliminar.addEventListener('click', () => {
+            const barberoId = item.dataset.barberoId;
+            console.log(`Eliminar barbero con ID: ${barberoId}`);
+            item.remove();
+          });
+          item.appendChild(botonActualizar);
+          item.appendChild(botonEliminar);
+        }
+      });
+
+  
+      // Ocultar formulario al salir del modo edición
+  
+      if (!modoEdicion) {
+        formulario.classList.add('hidden');
+      }
+      // Cambiar texto del botón
+      botonActualizarBarberos.textContent = modoEdicion ? 'Ver Barberos' : 'Actualizar Barberos';
     });
+
+// Botón "Añadir Barberos"
+botonMostrarFormulario.addEventListener('click', () => {
+  const estaOculto = formulario.classList.contains('hidden');
+
+  // Si estamos en modo edición, salimos de él para evitar conflicto
+  if (modoEdicion) {
+    modoEdicion = false;
+    botonActualizarBarberos.textContent = 'Actualizar Barberos';
+
+    // Limpiamos botones de edición si quedan
+    listaBarberos.querySelectorAll('li').forEach(item => {
+      const botonActualizar = item.querySelector('.boton-actualizar');
+      if (botonActualizar) botonActualizar.remove();
+
+      const botonEliminar = item.querySelector('.boton-eliminar');
+      if (botonEliminar) botonEliminar.remove();
+    });
+  }
+
+  formulario.classList.toggle('hidden');
+  botonMostrarFormulario.textContent = estaOculto ? 'Ocultar Formulario' : 'Añadir Barberos';
+});
 
 </script>
   

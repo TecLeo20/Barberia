@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Inicio - Barbería El Corte Fino</title>
-  <link rel="stylesheet" href="styles2.css" />
+  <link rel="stylesheet" href="clientes.css" />
 </head>
 <body>
 
@@ -189,7 +189,7 @@
 
     <section id="promociones" class="hidden promotions-section">
       <h2>¡Nuestras Promociones Especiales!</h2>
-      <div class="promotion-card", >
+      <div class="promotion-card">
         <h3>Descuento de Bienvenida</h3>
         <p>15% de descuento en tu primer corte.</p>
         <button onclick="mostrarDetalle('detalle-bienvenida')">Ver Detalles</button>
@@ -200,68 +200,69 @@
         <button onclick="mostrarDetalle('detalle-martes')">Ver Detalles</button>
       </div>
       <div class="promotion-card">
-        <h3>Paquete Familiar</h3>
-        <p>Corte para papá e hijo con un precio especial.</p>
+        <h3>Paquete Full</h3>
+        <p>Corte con barba y cejas.</p>
         <button onclick="mostrarDetalle('detalle-familiar')">Ver Detalles</button>
       </div>
 
 
           <!-- Tarjeta de detalles: Descuento de Bienvenida -->
-<div id="detalle-bienvenida" class="promo-detalle hidden">
-  <h3>Descuento de Bienvenida</h3>
-  <p><strong>Descripción:</strong> 15% de descuento en tu primer corte.</p>
-  <p><strong>Descuento:</strong> 15%</p>
-  <p><strong>Fecha de Inicio:</strong> 01/05/2025</p>
-  <p><strong>Fecha de Fin:</strong> 30/06/2025</p>
-  <p><strong>Usos Máximos:</strong> 1 por persona</p>
-</div>
+           <div id="detalle-bienvenida" class="promo-detalle hidden">
+            <h3>Descuento de Bienvenida</h3>
+            <p><strong>Descripción:</strong> 15% de descuento en tu primer corte.</p>
+            <p><strong>Descuento:</strong> 15%</p>
+            <p><strong>Fecha de Inicio:</strong> 01/05/2025</p>
+            <p><strong>Fecha de Fin:</strong> 30/06/2025</p>
+            <p><strong>Usos Máximos:</strong> 1 por persona</p>
+          </div>
 
-<!-- Tarjeta de detalles: Martes de Barba -->
-<div id="detalle-martes" class="promo-detalle hidden">
-  <h3>Martes de Barba</h3>
-  <p><strong>Descripción:</strong> Arreglo de barba a mitad de precio todos los martes.</p>
-  <p><strong>Descuento:</strong> 50%</p>
-  <p><strong>Fecha de Inicio:</strong> 01/05/2025</p>
-  <p><strong>Fecha de Fin:</strong> 31/12/2025</p>
-  <p><strong>Usos Máximos:</strong> Ilimitado (solo martes)</p>
-</div>
+          <!-- Tarjeta de detalles: Martes de Barba -->
 
-<!-- Tarjeta de detalles: Paquete Familiar -->
-<div id="detalle-familiar" class="promo-detalle hidden">
-  <h3>Paquete Familiar</h3>
-  <p><strong>Descripción:</strong> Corte para papá e hijo con un precio especial.</p>
-  <p><strong>Descuento:</strong> 20%</p>
-  <p><strong>Fecha de Inicio:</strong> 10/05/2025</p>
-  <p><strong>Fecha de Fin:</strong> 10/07/2025</p>
-  <p><strong>Usos Máximos:</strong> 2 por familia</p>
-</div>
+          <div id="detalle-martes" class="promo-detalle hidden">
+            <h3>Martes de Barba</h3>
+            <p><strong>Descripción:</strong> Arreglo de barba a mitad de precio todos los martes.</p>
+            <p><strong>Descuento:</strong> 50%</p>
+            <p><strong>Fecha de Inicio:</strong> 01/05/2025</p>
+            <p><strong>Fecha de Fin:</strong> 31/12/2025</p>
+            <p><strong>Usos Máximos:</strong> Ilimitado (solo martes)</p>
+          </div>
 
-<!-- Seccion de calificaciones de los barberos -->
- 
-    <section id="calificacion" class="hidden">
-      <h2>Califica tu experiencia</h2>
-      <form id="form-calif" class="formulario-centrado">
-        <label for="idCita">ID de la Cita:</label>
-        <input type="number" id="idCita" name="idCita" required><br>
-    
-        <label for="puntuacion">Puntuación (1 a 5):</label>
-        <select type="numberr" id="puntuacion" name="puntuacion" required>
-          <option value="">Selecciona</option>
-          <option value="1">1 - Muy malo</option>
-          <option value="2">2 - Malo</option>
-          <option value="3">3 - Regular</option>
-          <option value="4">4 - Bueno</option>
-          <option value="5">5 - Excelente</option>
-        </select><br>
-    
-        <label for="comentario">Comentario:</label>
-        <textarea type="comentario" id="comentario" name="comentario" rows="4"></textarea><br>
-    
-      
-    
-        <button type="submit">Enviar Calificación</button>
-      </form>
+
+          <!-- Tarjeta de detalles: Paquete Familiar -->
+
+          <div id="detalle-familiar" class="promo-detalle hidden">
+            <h3>Paquete Full</h3>
+            <p><strong>Descripción:</strong> Corte mas barba mas cejas.</p>
+            <p><strong>Descuento:</strong> 20%</p>
+            <p><strong>Fecha de Inicio:</strong> 10/05/2025</p>
+            <p><strong>Fecha de Fin:</strong> 10/07/2025</p>
+            <p><strong>Usos Máximos:</strong> 2 </p>
+          </div>
     </section>
+
+    
+          <!-- Seccion de calificaciones de los barberos -->
+ 
+    
+          <section id="calificacion" class="hidden">
+            <h2>Califica tu experiencia</h2>
+            <form id="form-calif" class="formulario-centrado">
+              <label for="idCita">ID de la Cita:</label>
+              <input type="number" id="idCita" name="idCita" required><br>
+              <label for="puntuacion">Puntuación (1 a 5):</label>
+              <select type="numberr" id="puntuacion" name="puntuacion" required>
+                <option value="">Selecciona</option>
+                <option value="1">1 - Muy malo</option>
+                <option value="2">2 - Malo</option>
+                <option value="3">3 - Regular</option>
+                <option value="4">4 - Bueno</option>
+                <option value="5">5 - Excelente</option>
+              </select><br>
+              <label for="comentario">Comentario:</label>
+              <textarea type="comentario" id="comentario" name="comentario" rows="4"></textarea><br>
+              <button type="submit">Enviar Calificación</button>
+            </form>
+          </section>
 
   </main>
 

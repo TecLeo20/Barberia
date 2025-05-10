@@ -12,12 +12,6 @@ body {
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
-  header h1 {
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
   header nav ul {
     list-style: none;
     display: flex;
@@ -25,27 +19,33 @@ body {
     gap: 20px;
     padding: 10px 0;
   }
-  
-  header nav a {
-    text-decoration: none;
-    color: #007bff; /* Un color diferente para los enlaces */
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  header nav a:hover {
-    color: #0056b3;
-  }
-  
   main {
     padding: 20px;
   }
+  .main-header {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: #ffffff;
+    padding: px;
+    text-align: center;
+  }
+  .main-header h1 {
+    margin-top: 18px;
+    font-size: 28px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  .main-header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+  }
+
   #servicios h2,
   #agendar h2,
-  #agregarbarbero h2,
   #calificacion h2,
-  #calificaciones h2,
-  #estadisticas,
   #mis-citas h2,
   #perfil h2 {
     color: #333;
@@ -54,18 +54,16 @@ body {
   }
   
   .servicios-lista {
-    
     list-style: none;
-    padding: 0;
+    padding: 7px;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
     display: flex; /* Usamos flexbox para controlar la disposición */
-  flex-direction:row; /* Apilamos los elementos verticalmente */
-  align-items:center;
+    flex-direction:row; /* Apilamos los elementos verticalmente */
+    align-items:center;
   
   }
-  
   .servicios-lista li {
     background-color: #fff;
     padding: 10px 15px;
@@ -75,25 +73,21 @@ body {
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     display: flex; /* Activa flexbox dentro de cada tarjeta para organizar el contenido */
-  flex-direction: column; /* Organiza el contenido de la tarjeta verticalmente */
-  align-items: center; /* Centra el contenido de la tarjeta horizontalmente */
-  text-align: center; /* Centra el texto dentro de la tarjeta */
-    
+    flex-direction: column; /* Organiza el contenido de la tarjeta verticalmente */
+    align-items: center; /* Centra el contenido de la tarjeta horizontalmente */
+    text-align: center; /* Centra el texto dentro de la tarjeta */ 
   }
-
   .servicios-lista li span:first-child {
     font-weight: bold;
     margin-bottom: 5px;
   }
-  
   .servicios-lista li .precio-servicio {
     color: #007bff;
     font-weight: bold;
     font-size: 1.1em;
-    margin-top: 10px; /* Empuja el precio hacia la parte inferior */
+    margin-top: 10px; 
   }
   
-
   #form-agendar label,
   #form-calif label,
   #form-perfil label {
@@ -123,11 +117,11 @@ body {
     border-radius: 5px;
     box-sizing: border-box;
   }
-  #agregarbarbero button[type="submit"],
+  
   #form-agendar button[type="submit"],
   #form-perfil button[type="submit"],
   #form-calif button[type="submit"] {
-    background: linear-gradient(135deg, #8e2de2, #4a00e0);
+    align-items: center;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -135,36 +129,32 @@ body {
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease;
+    background: linear-gradient(135deg, #8e2de2, #4a00e0);
   }
   
-  #mis-citas,
-  #calificaciones table {
-    width: auto;
-    
-    border-collapse: collapse;
+  #mis-citas table {
+    width: 100%;
     margin-top: 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    justify-content: center;
   }
   
-  #estadisticas th,
-  #estadisticas td,
   #mis-citas th,
   #mis-citas td {
     padding: 10px 15px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #eee;
   }
-  #estadisticas th,
+  
   #mis-citas th {
     background-color: #f8f8f8;
     font-weight: bold;
   }
-  #estadisticas,
+  
   #mis-citas tbody tr:last-child td {
     border-bottom: none;
   }
-  
   
   #mis-citas tbody button {
     background-color: #dc3545;
@@ -194,24 +184,22 @@ body {
   }
 
   /* Estilos para la sección de llamada a la acción */
-.call-to-action {
+  
+  .call-to-action {
     background-color: #e0e4eb;
-   
     padding: 180px 160px;
     text-align: center;
     border-bottom: 1px solid #eee;
   }
-  
   .call-to-action h2 {
     color: #333;
     margin-bottom: 15px;
   }
-  
   .call-to-action p {
     color: #666;
     margin-bottom: 20px;
   }
-  
+
   .call-to-action button {
     background: linear-gradient(135deg, #8e2de2, #4a00e0);
     color: white;
@@ -274,20 +262,16 @@ body {
   }
   
   /* Estilos para la sección de promociones */
+  
   .promotions-section {
     padding: 30px 20px;
     text-align: center;
   }
-
   .promotions-section h2{
     padding: 20px;
+    margin-top: -20px;
     text-align: center;
-    
-    
-  
-    
   }
-  
   .promotion-card {
     background-color: #fff;
     border-radius: 8px;
@@ -295,9 +279,8 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
   }
-  
   .promotion-card button {
-    background: linear-gradient(135deg, #8e2de2, #4a00e0); /* Un color llamativo para los botones de promoción */
+    background: linear-gradient(135deg, #8e2de2, #4a00e0);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -307,11 +290,10 @@ body {
     transition: background-color 0.3s ease;
   }
     
-  
-
+  /* Estilo para las tarjetas de cada interfaz y centrarla */
   .formulario-centrado {
     max-width: 400px;
-    margin: 50px auto; /* Centra horizontalmente */
+    margin: 50px auto; 
     padding: 20px;
     background-color: #fff;
     border-radius: 15px;
@@ -321,29 +303,7 @@ body {
     gap: 8px;
   }
 
-  .main-header {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    color: #ffffff;
-    padding: px;
-    text-align: center;
-  }
-
-  .main-header h1 {
-    margin-top: 18px;
-    font-size: 28px;
-    color: #ffffff;
-    font-weight: bold;
-  }
-
-  .main-header nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: background-color 0.3s;
-  }
-
+  /* Card para mostrar los detalles de la promo */
   .promo-detalle {
   margin: 20px auto;
   margin-top: 200px;
